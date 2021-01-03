@@ -80,4 +80,4 @@ class Owner(models.Model):
     is_register = models.BooleanField(verbose_name=_('is register'), default=False)
     is_cancel = models.BooleanField(verbose_name=_('is cancel'), default=False)
 
-    reason = models.CharField(verbose_name=_('Reason'), blank=True, null=True)
+    reason = models.CharField(verbose_name=_('Reason'), max_length=255, blank=True, null=True)
