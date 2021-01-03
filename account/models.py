@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _  # 다국어 지원
+from app.models import Restaurant
 
 
 class UserManager(BaseUserManager):
@@ -40,6 +41,7 @@ class User(AbstractBaseUser):
     phone = models.CharField(verbose_name=_('Phone'), max_length=20)
 
     is_active = models.BooleanField(verbose_name=_('is active'), default=False)
+    is_withdrawal = models.BooleanField(verbose_name=_('is withdrawal'), default=False)
     is_superuser = models.BooleanField(verbose_name=_('is superuser'), default=False)
 
     date_joined = models.DateTimeField(verbose_name=_('date joined'), auto_now_add=True)
@@ -67,3 +69,15 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_superuser
+
+
+class Owner(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+
+    name = models.CharField(verbose_name=_('Name'), max_length=10)
+    personal_phone = models.CharField(verbose_name=_('Personal Phone'), max_length=20)
+
+    is_register = models.BooleanField(verbose_name=_('is register'), default=False)
+    is_cancel = models.BooleanField(verbose_name=_('is cancel'), default=False)
+
+    reason = models.CharField(verbose_name=_('Reason'), blank=True, null=True)
