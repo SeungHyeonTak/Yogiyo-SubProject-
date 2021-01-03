@@ -157,7 +157,6 @@ class BundleOption(models.Model):
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, related_name='menus')
 
     name = models.CharField(verbose_name=_('Name'), max_length=25)
-    price = models.CharField(verbose_name=_('Price'), max_length=25)
 
     is_essential = models.BooleanField(verbose_name=_('is essential'), default=False)
 

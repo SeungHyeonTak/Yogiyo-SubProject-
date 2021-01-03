@@ -78,6 +78,7 @@ class User(AbstractBaseUser):
 
 
 class Owner(models.Model):
+    """created_at 추가 및 Meta Class 추가하기"""
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
 
     name = models.CharField(verbose_name=_('Name'), max_length=10)
