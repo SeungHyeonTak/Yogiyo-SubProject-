@@ -383,3 +383,8 @@ $RECYCLE.BIN/
 
 # secret key
 secret.json
+
+# static file
+/static
+/staticfiles
+/media
