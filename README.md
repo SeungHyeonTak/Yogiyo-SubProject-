@@ -1,4 +1,4 @@
-## YOGIYO PROJECT
+## YOGIYO CLONE PROJECT
 
 ### 구조
 - api
