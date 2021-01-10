@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'app',
     'account',
+    'owner_site',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'owner.templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'owner_site.templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
