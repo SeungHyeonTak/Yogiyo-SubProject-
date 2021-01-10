@@ -5,10 +5,42 @@
 ### Installation (설치 방법)
 
 -----
+- 가상환경 install
+```bash
+$ pyenv virtualenv 3.6.4 YGY
+$ pyenv local pyenv
+```
+
+- requirements.txt install
+```bash
+$ pip install -r requirements.txt
+```
 
 ### Usage (사용 방법)
 
 -----
+
+- api와 owner_site는 접속하는 url이 따로 설정 되어 runserver로 접속하는 방법이 다르다.
+
+- api (local)
+```bash
+$ ./manage.py runserver 127.0.0.1:8100 --settings=config.settings.api-local
+```
+
+- api (prod)
+```bash
+$ ./manage.py runserver 127.0.0.1:8100 --settings=config.settings.api-prod
+```
+
+- owner_site (local)
+```bash
+$ ./manage.py runserver 127.0.0.1:8109 --settings=config.settings.mng_local
+```
+
+- owner_site (prod)
+```bash
+$ ./manage.py runserver 127.0.0.1:8109 --settings=config.settings.mng_prod
+```
 
 ### Contributing (기여 방법)
 
