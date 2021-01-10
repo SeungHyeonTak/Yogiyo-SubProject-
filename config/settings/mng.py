@@ -1,4 +1,4 @@
 import os
 from .base import *
 
-ROOT_URLCONF = 'owner.urls'
+ROOT_URLCONF = 'owner_site.urls'
