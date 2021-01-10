@@ -1,10 +1,8 @@
-from .base import *
+from .mng import *
 
 DEBUG = False
+SITE_URL = ''
 
-ALLOWED_HOSTS = ['*']  # 이후 고정 아이피 등록하기
-
-# Prod Postgresql
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -16,6 +14,7 @@ DATABASES = {
     }
 }
 
+# AWS S3
 AWS_ACCESS_KEY_ID = get_secret('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = get_secret('AWS_SECRET_ACCESS_KEY')
 
