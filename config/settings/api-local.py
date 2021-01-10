@@ -1,7 +1,8 @@
-from .base import *
+from .api import *
 
 DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1']
+SITE_URL = 'http://127.0.0.1:8100'
 
 INSTALLED_APPS += [
     'debug_toolbar',
@@ -12,8 +13,6 @@ MIDDLEWARE += [
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
-
-ROOT_URLCONF = 'config.urls'
 
 # Local Postgresql
 DATABASES = {
