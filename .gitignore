@@ -384,7 +384,7 @@ $RECYCLE.BIN/
 # secret key
 secret.json
 
-# static file
-/static
-/staticfiles
-/media
+# static file (css, imgs, js)
+static/css
+static/imgs
+static/js
