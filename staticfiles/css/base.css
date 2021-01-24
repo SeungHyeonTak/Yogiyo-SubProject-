@@ -1,3 +1,7 @@
+body, p, h1, h2, ul, ol, li, dl, dt, dd, table, th, td, form {
+    margin: 0;
+    padding: 0;
+}
 .owner-header {
     border-bottom: 1px solid #E0E0E0;
     height: 83px;
@@ -11,33 +15,83 @@
     width: 164px;
     height: 35px;
     float: left;
-    background: url("/static/imgs/img-nav-owner-v2.png") no-repeat;
+    background: url("/static/imgs/img-nav-owners-v2.png") no-repeat;
+    cursor: url("/static/imgs/img-nav-owners-v2.png"), pointer, width: 160px, height: 30px;
+}
+.owner-header a {
+    text-decoration:none;
 }
 .owner-header #owner-name {
     display: block;
-    text-decoration:none;
     text-indent: -999em;
     overflow: hidden;
 }
-.nav-ul {
-    list-style: none;
-}
-.nav-ul .n1{
-    float: left;
-}
-.owner-header .nav-ul .superintend{
-    background: url("/static/imgs/yogiyo_my_shop.png") no-repeat;
+.nav-ul a {
+    background: url("/static/imgs/img-nav-owners-v2.png") no-repeat;
     display: block;
     height: 36px;
     text-indent: -999em;
     overflow: hidden;
     margin-left: 43px;
 }
-.nav-ul .n2{
+.nav-ul .n1 a {
+    background-position: -234px 0;
+    width: 85px;
+}
+.nav-ul .n1 a:hover {
+    background-position: -234px -36px;
+    width: 85px;
+}
+.nav-ul .n2 a {
+    background-position: -361px 0;
+    width: 83px;
+}
+.nav-ul .n2 a:hover {
+    background-position: -361px -36px;
+    width: 83px;
+}
+.nav-ul .n3 a {
+    background-position: -486px 0;
+    width: 66px;
+}
+.nav-ul .n3 a:hover {
+    background-position: -486px -36px;
+    width: 66px;
+}
+.nav-ul {
+    list-style: none;
+}
+.nav-ul>li {
     float: left;
 }
-.nav-ul .n3{
+.ext-ul {
+    float: right;
+    color: #E0E0E0;
+    list-style: none;
+}
+.ext-ul>li {
     float: left;
+}
+.ext-ul .outlink a {
+    color: #333;
+    font-size: 14px;
+    margin: 0 32px 0 0;
+}
+.ext-ul .outlink a:hover {
+    color: red;
+}
+.ext-ul li a:hover {
+    color: red;
+}
+.ext-ul a {
+    display: inline-block;
+    line-height: 36px;
+    color: #888;
+    font-size: 12px;
+    margin: 0 10px;
+}
+.dropdown {
+    position: relative;
 }
 .owner-container {
     padding-bottom: 90px;
