@@ -1,0 +1,48 @@
+.owner-header {
+    border-bottom: 1px solid #E0E0E0;
+    height: 83px;
+    width: 100%;
+    position: relative;
+    min-width: 960px;
+    margin: 0 auto;
+    padding: 26px 20px 25px 20px;
+}
+.owner-header h1{
+    width: 191px;
+    height: 35px;
+    float: left;
+    background: url("/static/imgs/yogiyo_logo.png") no-repeat;
+    background-position: center;
+}
+.owner-header .owner-logo {
+
+}
+.owner-header #owner-name {
+    display: block;
+    text-decoration:none;
+    text-indent: -999em;
+    overflow: hidden;
+}
+.nav-ul {
+    list-style: none;
+}
+.nav-ul .n1{
+    float: left;
+}
+.nav-ul .n2{
+    float: left;
+}
+.nav-ul .n3{
+    float: left;
+}
+.owner-container {
+    padding-bottom: 90px;
+}
+.footer {
+    background-color: #FBFBFB;
+    border-top: 1px solid #D9D9D9;
+    width: 100%;
+    font-size: 12px;
+    padding-bottom: 82px;
+    margin: 0;
+}
