@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 
-def index(request):
+def owner_index(request):
     test = 'test'
     context = {'test': test}
-    return render(request, 'base.html', context)
+    return render(request, 'owner.html', context)
