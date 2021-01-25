@@ -44,10 +44,165 @@
     </ul>
 </div>
 <div class="owner-container">
-
+    <div class="owner-main">
+        <ul class="nav clearfix">
+            <li class="n1"><a href="#">주문확인</a></li>
+            <li class="n2"><a href="#">내 정보관리</a></li>
+            <li class="n3"><a href="#">품절 메뉴 관리</a></li>
+            <li class="n4"><a href="#">영업일 관리</a></li>
+            <li class="n5"><a href="#">배달지역 관리</a></li>
+            <li class="n6"><a href="#">할인관리</a></li>
+        </ul>
+        <div class="mid clearfix">
+            <div id="carousel-img" class="owner-slide carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="" data-slide-to="0" class="active"></li>
+                    <li data-target="" data-slide-to="1" class></li>
+                    <li data-target="" data-slide-to="2" class></li>
+                    <li data-target="" data-slide-to="3" class></li>
+                    <li data-target="" data-slide-to="4" class></li>
+                    <li data-target="" data-slide-to="5" class></li>
+                </ol>
+            </div>
+            <div class="carousel-inner" role="listbox">
+                <div class="item">
+                    <a href=""></a>
+                </div>
+            </div>
+            <div class="owner-login">
+                <div class="status-logout">
+                    <form class="form-signin form-horizontal" method="POST" action="/owner/login/">
+                        <div style="display:none">
+                            <input type="hidden" name="csrfmiddlewaretoken" value="">
+                        </div>
+                        <input type="hidden" name="next_url" id="next_url" value="/">
+                        <div>
+                            <input type="text" class="inp-txt" id="username" name="username" placeholder="아이디 입력">
+                        </div>
+                        <div>
+                            <input type="password" class="inp-txt pwd" id="password" name="password"
+                                   placeholder="비밀번호 입력">
+                        </div>
+                        <div class="id_pw_opt">
+                            <label>
+                                <input type="checkbox" name="save_id" id="save_id"> 아이디 저장
+                            </label>
+                            <a href="#">아이디/비밀번호 찾기</a>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn-own-login">로그인</button>
+                        </div>
+                    </form>
+                    <a href="#" class="btn-own-auth">회원가입 인증하기</a>
+                    <p class="txt">
+                        입점신청 후 처음 방문하시는 사장님은
+                        <br>
+                        회원가입 인증하기를 통해 입점을 완료해주세요.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <ul class="info clearfix">
+            <li class="n1"><a href="">요기요 입점신청하기</a></li>
+            <li class="n2"><a href="">요기요 알뜰쇼핑 바로가기</a></li>
+            <li class="n3"><a href="">요기요 이용약관 동의하기</a></li>
+        </ul>
+        <div class="sms-app-down">
+            <div class="sms">
+                <strong><em>SMS</em>로 사장님 앱 다운받기</strong>휴대번호를 입력하시고 전송하기 버튼을 누르시면, 다운받을 주소를 휴대폰으로 전송해드립니다.
+                <div class="input-group">
+                    <input type="text" name="num1" id="owner-sms-num1" maxlength="3">
+                    <input type="text" name="num1" id="owner-sms-num2" maxlength="4">
+                    <input type="text" name="num1" id="owner-sms-num3" maxlength="4">
+                    <input type="button" id="sendbtn" value="문자 보내기" disabled="false">
+                </div>
+                <label for="chk">
+                    <input type="checkbox" name="agree" id="chk">
+                    SMS 발송을 위한 휴대폰번호 수집에 동의합니다.
+                </label>
+                <ul>
+                    <li>- 휴대폰번호는 발송 목적 외에 이용하지 않으며 목적달성 1일 후 파기됩니다.</li>
+                    <li>- 휴대폰번호당 1일 3회까지 SMS 전송 가능(무료)</li>
+                </ul>
+            </div>
+            <div class="qrcode">
+                <strong><em>QR코드</em> 스캔하기</strong>
+                <p>스마트폰으로 QR코드를<br>스캔하면 앱 설치페이지로<br>이동됩니다.</p>
+                <img src="{% static 'imgs/qr-code.png' %}" alt="qr_code" style="width: 105px; height: 105px;">
+            </div>
+        </div>
+    </div>
 </div>
 <div class="footer">
-
+    <div class="footer-menu">
+        <ul>
+            <li>
+                <a href="#">이용약관</a>
+            </li>
+            <li>
+                <a href="#"><strong>개인정보처리방침</strong></a>
+            </li>
+            <li>
+                <a href="#">고객만족센터</a>
+            </li>
+            <li class="sns-link">
+                <a href="https://www.facebook.com/Yogiyokorea" class="facebook" target="_blank"><span></span>페이스북</a>
+                <span></span>
+                <a href="https://blog.yogiyo.co.kr/" class="blog" target="_blank"><span></span>블로그</a>
+            </li>
+        </ul>
+    </div>
+    <div class="company-wrap">
+        <div class="company-logo">
+            <a href="#">요기요</a>
+        </div>
+        <div class="company-info">
+            <p>
+                <strong>유한책임회사 딜리버리히어로코리아</strong>
+                <br>
+                서울시 서초구 서초대로38길 12 마제스타시티 타워2 17층 유한책임회사 딜리버리히어로코리아
+                <span class="bar">|</span>
+                대표자 : 강신봉
+                <span class="bar">|</span>
+                사업자등록번호:211-88-68802
+                <a href="" target="_blank" class="biz-info">사업자 정보 확인</a>
+                <br>
+                통신판매업신고:제 2018-서울서초-2635호
+                <span class="bar">|</span>
+                개인정보관리책임자:조현준
+                <a href="">(privacy@yogiyo.co.kr)</a>
+                <span class="bar">|</span>
+                제휴문의:
+                <a href="">partnership@deliveryhero.co.kr</a>
+                <span class="bar">|</span>
+                고객만족센터:
+                <a href="">support@yogiyo.co.kr</a>
+                <br>
+                호스팅 제공자:카페24 주식회사
+            </p>
+        </div>
+    </div>
+    <div class="service-info">
+        <div class="bpg">
+            <a href="#">
+                <span class="img"></span><span class="text">요기요<br>안심센터</span>
+            </a>
+        </div>
+        <div class="cleanreview">
+            <a href="#">
+                <span class="img"></span>
+                <span class="text">요기요 100%<br>클린리뷰</span>
+            </a>
+        </div>
+        <div class="csc">
+            <em>고객만족센터</em>
+            <strong>1661-5270</strong>
+            <span>24시간, 연중무휴</span>
+        </div>
+    </div>
+    <div class="guide">
+        <p>유한책임회사 딜리버리히어로코리아는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 상품/거래정보 및 거래와 관련하여 요기요에 등록된 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 유한책임회사 딜리버리히어로코리아는 책임을 지지 않습니다. 상품 및 거래에 관하여 보다 정확한 정보는 해당 판매자에게 직접 확인하여 주시기 바랍니다. Copyright YOGIYO. All Rights Reserved.</p>
+    </div>
 </div>
 </body>
 </html>
