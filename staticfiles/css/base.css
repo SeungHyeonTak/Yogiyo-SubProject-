@@ -90,6 +90,9 @@ ul, ol {
 .ext-ul li a:hover {
     color: red;
 }
+.btn-own-auth a:hover {
+    color: #fa0050;
+}
 .ext-ul a {
     display: inline-block;
     line-height: 36px;
@@ -103,14 +106,14 @@ ul, ol {
 .owner-container {
     padding-bottom: 90px;
 }
-.owner-container .owner-main {
-    width: 860px;
-    border: 1px solid #ccc;
-    border-right: none;
-}
 .owner-main {
     width: 860px;
     margin: 80px auto 0 auto;
+}
+.owner-main .nav {
+    width: 860px;
+    border: 1px solid #ccc;
+    border-right: none;
 }
 .owner-main .nav>li {
     background: url("/static/imgs/menu-img.png") no-repeat;
@@ -144,7 +147,6 @@ ul, ol {
     text-align: center;
     text-decoration: none;
     padding-top: 80px;
-    box-sizing: border-box;
 }
 .owner-main .mid {
     margin: 30px 0;
@@ -188,6 +190,18 @@ a {
     position: relative;
     width: 100%;
     overflow: hidden;
+}
+.carousel-inner .item img{
+    width: 566px;
+    height: 300px;
+}
+.carousel-left {
+    left: 0;
+    background: url('/static/imgs/img-prev.png') no-repeat;
+}
+.carousel-right {
+    left: 0;
+    background: url('/static/imgs/img-next.png') no-repeat;
 }
 form {
     display: block;
@@ -267,6 +281,9 @@ input[type="checkbox"], input[type="radio"] {
     background: url('/static/imgs/img-own-banner-agree.png') no-repeat;
     margin-right: 0;
 }
+.input-group {
+    display: block;
+}
 .sms-app-down {
     border: 1px solid #f0ebd5;
     background-color: #fffcf0;
@@ -296,6 +313,13 @@ input[type="checkbox"], input[type="radio"] {
     color: #fa0050;
     font-style: normal;
 }
+.sms-app-down .input-group input {
+    height: 34px;
+    vertical-align: middle;
+    padding: 6px 3px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
 .sms-app-down input[type="text"] {
     border: 1px solid #ccc;
     background-color: #fff;
@@ -303,6 +327,10 @@ input[type="checkbox"], input[type="radio"] {
     font-weight: bold;
     text-align: center;
     width: 100px;
+}
+.sms-app-down input[type="button"]:disabled {
+    border-color: #ccc;
+    background-color: #ccc;
 }
 .sms-app-down input[type="button"] {
     border: 1px solid #fa0050;
@@ -344,6 +372,9 @@ input[type="checkbox"], input[type="radio"] {
     padding-bottom: 82px;
     margin: 0;
 }
+.footer-menu {
+    border-bottom: 1px solid #D9D9D9;
+}
 .footer-menu ul {
     min-width: 960px;
     line-height: 45px;
@@ -366,6 +397,10 @@ input[type="checkbox"], input[type="radio"] {
 }
 b, strong {
     font-weight: bold;
+}
+.footer-menu li:first-child:before, .footer-menu li.sns-link:before {
+    content: " ";
+    padding: 0;
 }
 .footer-menu li:before {
     color: #D9D9D9;
