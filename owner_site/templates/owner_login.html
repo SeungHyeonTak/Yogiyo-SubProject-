@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>요기요 사장님 사이트</title>
+    <!-- favicon.ico 404(Not Found) -->
+    <link rel="icon" href="{% static 'imgs/yogiyo_favicon.ico' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+<div id="login">
+    <h1>
+        <i class="ico spr"></i>
+        <span>사장님/비즈센터</span>
+    </h1>
+    <form class="form-signin form-horizontal" method="POST">
+        <fieldset>
+            <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value=""></div>
+            <br>
+            <div class="control-group">
+                <label for="username" class="control-label">아이디</label>
+                <div class="input-wrap">
+                    <i class="ico spr ico-id"></i>
+                    <input type="text" id="username" name="username" class="input-block-level">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="password" class="control-label">비밀번호</label>
+                <div class="input-wrap">
+                    <i class="ico spr ico-pw"></i>
+                    <input type="text" id="password" name="password" class="input-block-level">
+                </div>
+            </div>
+            <div class="controls">
+                <button type="submit" class="button">로그인</button>
+            </div>
+            <div class="control-group center">
+                <a href="#" class="register">회원가입 / 아이디 변경</a>
+            </div>
+            <ul>
+                <li>입점신청 후 처음 방문하시는 사장님은 회원가입을 통해 입점을 완료해주세요.</li>
+                <li>아이디 혹은 비밀번호가 기억나지 않는 경우, '아이디 변경' 기능을 사용해주세요.</li>
+            </ul>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
