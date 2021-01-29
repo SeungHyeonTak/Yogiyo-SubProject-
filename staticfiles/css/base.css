@@ -103,6 +103,53 @@ ul, ol {
 .dropdown {
     position: relative;
 }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    border-top: 1px solid #AEAEAE;
+    border-bottom: 1px solid #AEAEAE;
+    background: url('/static/imgs/bg-sitemap.png') repeat-y;
+    width: 805px;
+    z-index: 1000;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content>div {
+    float: left;
+    width: 25%;
+    padding-bottom: 15px;
+}
+.dropbtn {
+    border: none;
+    cursor: pointer;
+}
+.owner-header .ext a{
+    display: inline-block;
+    color: #888;
+    font-size: 12px;
+    line-height 36px;
+    margin: 0 10px;
+}
+.owner-header .ext-ul .dropdown-content ul {
+    padding: 22px 0 0px 31px;
+}
+.owner-header .ext-ul .dropdown-content li {
+    padding: 0 0 10px 0;
+}
+.owner-header .ext-ul .dropdown-content a {
+    color: #343434;
+    line-height: 1.2;
+    margin: 0;
+}
+.owner-header .ext-ul .dropdown-content strong {
+    display: inline-block;
+    color: #fa0050;
+    font-size: 14px;
+    text-decoration: underline;
+    padding-bottom: 9px;
+}
 .owner-container {
     padding-bottom: 90px;
 }
