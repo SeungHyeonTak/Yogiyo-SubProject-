@@ -1,198 +1,71 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-body {
-    background: #fff;
-}
-body, input, select, textarea, button, table {
-    color: #616161;
-}
-body, input, select, textarea, button, table {
-    font: 14px/1.5;
-}
-#login {
-    width: 600px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 100px 0;
-}
-#login h1 {
-    margin-bottom: 22px;
-    text-align: left;
-    color: #fa0050;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-}
-#login h1 .ico {
-    width: 178px;
-    height: 62px;
-    background-position: 0 -1px;
-}
-.spr {
-    display: inline-block;
-    background: url('/static/imgs/spr.png') no-repeat 0 0;
-    font: 0/0 a;
-    color: transparent;
-    text-shadow: none;
-    background-color: transparent;
-    border: 0;
-    vertical-align: middle;
-}
-.form-horizontal .control-group {
-    position: relative;
-    padding: 7px;
-    border-bottom: 1px solid #d0d0d0;
-}
-.form-horizontal .control-group .control-label{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 180px;
-    padding: 16px 0 0 10px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #616161;
-    background: #f1f1f1;
-    letter-spacing: -1px;
-}
-#login .control-group {
-    padding: 0 190px 0 150px;
-    margin-bottom: 16px;
-    border: none;
-    overflow: hidden;
-}
-#login .form-signin {
-    position: relative;
-    width: 580px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    padding: 50px 0;
-    background: #fff;
-    box-shadow: 0 0 5px 3px #d0d0d0;
-}
-#login label {
-    display: block;
-    position: absolute;
-    top: 8px;
-    left: 80px;
-    width: auto;
-    padding: 0;
-    margin-bottom: 5px;
-    background: none;
-}
-#login .input-wrap {
-    position: relative;
-    padding: 0 40px 0 0;
-}
-.input-wrap {
-    height: 37px;
-    border: 1px solid #afafaf;
-}
-input[type="text"] {
-    width: auto;
-    height: 24px;
-    line-height: 1;
-    font-size: 18px;
-    text-align: left;
-    padding: 4px 2px;
-    color: #231815;
-    border: 1px solid #cecece;
-}
-.input-wrap input {
-    background: transparent;
-    border: none;
-}
-.input-wrap .input-block-level{
-    width: 100%;
-    padding-top: 5px;
-    font-size: 15px;
-}
-#login .input-wrap .ico-id {
-    background-position: -207px -11px;
-}
-#login .input-wrap .input-block-level{
-    width: 90%;
-}
-#login input {
-    display: block;
-    color: #7f7f7f;
-}
-#login .input-wrap .ico {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    width: 18px;
-    height: 20px;
-}
-fieldset {
-    border: none;
-}
-#login .input-wrap .ico-pw {
-    background-position: -209px -37px;
-}
-#login .controls {
-    padding: 0;
-    margin: 0;
-    width: 100px;
-    position: absolute;
-    top: 71px;
-    right: 80px;
-}
-#login .controls .button {
-    height: 94px;
-}
-#login .button {
-    display: block;
-    width: 100%;
-    height: 56px;
-    line-height: 53px;
-    font-size: 20px;
-}
-.button {
-    text-decoration: none;
-}
-button, .button {
-    display: inline-block;
-    height: 47px;
-    text-align: center;
-    background-color: #fa0050;
-    color: #fff;
-    border: none;
-    border: 1px solid #b4060d;
-    box-shadow: inset 0 1px 0 #eb8c8f;
-    font-weight: bold;
-}
-.center {
-    text-align: center !important;
-}
-#login .register {
-    text-align: center;
-    color: #fa0050;
-    font-size: 16px;
-}
-a {
-    background: transparent;
-}
-#login ul {
-    padding: 18px;
-}
-ul {
-    list-style: none;
-}
-#login li {
-    background-image: url('/static/imgs/bu_rect.png');
-    background-position: 0 6px;
-    background-repeat: no-repeat;
-    background-size: 2px auto;
-    color: #888;
-    font-size: 13px;
-    line-height: 17px;
-    padding-left: 10px;
-    margin-bottom: 10px;
-}
+* { margin: 0; padding: 0; }
+
+body { background: #fff; }
+
+body, input, select, textarea, button, table { color: #616161; }
+
+body, input, select, textarea, button, table { font: 14px/1.5; }
+
+#login { width: 600px; display: block; margin-left: auto; margin-right: auto; padding: 100px 0; }
+
+#login h1 { margin-bottom: 22px; text-align: left; color: #fa0050; font-size: 32px; font-weight: bold; text-align: center; }
+
+#login h1 .ico { width: 178px; height: 62px; background-position: 0 -1px; }
+
+#login h1 .spr { display: inline-block; background: url("/static/imgs/spr.png") no-repeat 0 0; font: 0/0 a; color: transparent; text-shadow: none; background-color: transparent; border: 0; vertical-align: middle; }
+
+#login li { background-image: url("/static/imgs/bu_rect.png"); background-position: 0 6px; background-repeat: no-repeat; background-size: 2px auto; color: #888; font-size: 13px; line-height: 17px; padding-left: 10px; margin-bottom: 10px; }
+
+#login ul { padding: 18px; }
+
+#login .register { text-align: center; color: #fa0050; font-size: 16px; }
+
+#login .button { display: block; width: 100%; height: 56px; line-height: 53px; font-size: 20px; }
+
+#login input { display: block; color: #7f7f7f; }
+
+#login label { display: block; position: absolute; top: 8px; left: 80px; width: auto; padding: 0; margin-bottom: 5px; background: none; }
+
+#login .form-signin { position: relative; width: 580px; display: block; margin-left: auto; margin-right: auto; margin-top: 5px; padding: 50px 0; background: #fff; box-shadow: 0 0 5px 3px #d0d0d0; }
+
+#login .form-horizontal fieldset { border: none; }
+
+#login .form-horizontal fieldset .center { text-align: center !important; }
+
+#login .form-horizontal fieldset .control-group { position: relative; padding: 7px; border-bottom: 1px solid #d0d0d0; }
+
+#login .form-horizontal fieldset .control-group .control-label { position: absolute; top: 0; left: 0; bottom: 0; width: 180px; padding: 16px 0 0 10px; font-size: 14px; font-weight: bold; color: #616161; background: #f1f1f1; letter-spacing: -1px; }
+
+#login .form-horizontal fieldset .control-group .input-wrap { position: relative; padding: 0 40px 0 0; }
+
+#login .form-horizontal fieldset .control-group .input-wrap input { background: transparent; border: none; }
+
+#login .form-horizontal fieldset .control-group .input-wrap .input-block-level { width: 100%; padding-top: 5px; font-size: 15px; }
+
+#login .form-horizontal fieldset .control-group .input-wrap .ico-id { background-position: -207px -11px; }
+
+#login .form-horizontal fieldset .control-group .input-wrap .input-block-level { width: 90%; }
+
+#login .control-group { padding: 0 190px 0 150px; margin-bottom: 16px; border: none; overflow: hidden; }
+
+#login .input-wrap { height: 37px; border: 1px solid #afafaf; }
+
+#login .input-wrap .ico { position: absolute; top: 8px; right: 10px; width: 18px; height: 20px; }
+
+#login .input-wrap .ico-pw { background-position: -209px -37px; }
+
+#login .controls { padding: 0; margin: 0; width: 100px; position: absolute; top: 71px; right: 80px; }
+
+#login .controls .button { height: 94px; }
+
+input[type="text"] { width: auto; height: 24px; line-height: 1; font-size: 18px; text-align: left; padding: 4px 2px; color: #231815; border: 1px solid #cecece; }
+
+.button { text-decoration: none; }
+
+button, .button { display: inline-block; height: 47px; text-align: center; background-color: #fa0050; color: #fff; border: none; border: 1px solid #b4060d; box-shadow: inset 0 1px 0 #eb8c8f; font-weight: bold; }
+
+a { background: transparent; }
+
+ul { list-style: none; }
+
+/*# sourceMappingURL=login.css.map */
