@@ -6,8 +6,9 @@
     <title>요기요 사장님 사이트</title>
     <!-- favicon.ico 404(Not Found) -->
     <link rel="icon" href="{% static 'imgs/yogiyo_favicon.ico' %}">
+    {% load sass_tags %}
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% sass_src 'css/login.scss' %}">
 </head>
 <body>
 <div id="login">
