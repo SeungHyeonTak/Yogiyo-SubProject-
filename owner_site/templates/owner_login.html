@@ -17,6 +17,7 @@
         <span>사장님/비즈센터</span>
     </h1>
     <form class="form-signin form-horizontal" method="POST">
+        {% csrf_token %}
         <fieldset>
             <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value=""></div>
             <br>
@@ -45,6 +46,7 @@
                 <li>아이디 혹은 비밀번호가 기억나지 않는 경우, '아이디 변경' 기능을 사용해주세요.</li>
             </ul>
         </fieldset>
+
     </form>
 </div>
 </body>
