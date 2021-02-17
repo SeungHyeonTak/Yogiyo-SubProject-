@@ -390,15 +390,16 @@ a {
                 text-align: center;
                 width: 100px;
             }
-            input[type="button"]:disabled {
-                border-color: #ccc;
-                background-color: #ccc;
-            }
             input[type="button"] {
                 border: 1px solid #fa0050;
+                background-color: #fa0050;
                 width: 150px;
                 color: #fff;
                 margin-left: 5px;
+            }
+            input[type="button"]:disabled {
+                border-color: #ccc;
+                background-color: #ccc;
             }
             input[type="checkbox"] {
                 margin-right: 6px;
