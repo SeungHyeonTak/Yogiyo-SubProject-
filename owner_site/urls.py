@@ -1,11 +1,12 @@
 from django.urls import path
-from owner_site.views import owner_index, owner_login
+from owner_site import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', owner_index, name='owner'),
-    path('owner/login/', owner_login, name='owner_login'),
+    path('', views.owner_index, name='owner'),
+    path('owner/login/', views.owner_login, name='owner_login'),
+    path('owner/signup/', views.owner_signup, name="owner_signup"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
