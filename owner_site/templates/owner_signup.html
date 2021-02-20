@@ -6,10 +6,14 @@
     <title>요기요 사장님 사이트</title>
     <!-- favicon.ico 404(Not Found) -->
     <link rel="icon" href="{% static 'imgs/yogiyo_favicon.ico' %}">
+
+    {% load sass_tags %}
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% sass_src 'css/signup.scss' %}">
 </head>
 <body>
     <div class="rd-wrapper contact-wrapper">
-        <form action="POST" class="form-horizontal form-signup">
+        <form method="POST" class="form-horizontal form-signup" action="/owner/signup/">
             <div class="registration-wrap">
                 <div class="control-group">
                     <div class="control-label">사업자번호</div>
@@ -28,14 +32,14 @@
             </div>
             <div class="txts">
                 <p class="bs-callout-info">
-                    <i class="spr"></i>"'회원가입 인증하기'는 입점신청이 완료된 사장님에 한해 이용이 가능합니다."
+                    <i class="spr"></i>'회원가입 인증하기'는 입점신청이 완료된 사장님에 한해 이용이 가능합니다.
                 </p>
                 <p>
-                    <i class="spr"></i>"아직 요기요 입점을 신청하지 않으셨다면 온라인 입점신청을 진행해주세요."
+                    <i class="spr"></i>아직 요기요 입점을 신청하지 않으셨다면 온라인 입점신청을 진행해주세요.
                     <a href="#" class="link">온라인 입점신청하기</a>
                 </p>
                 <p>
-                    <i class="spr"></i>"아이디/비밀번호를 분실한 경우, 본 페이지에서 사업자 번호와 휴대폰번호를 인증하시면 아이디/비밀번호를 재등록하실 수 있습니다."
+                    <i class="spr"></i>아이디/비밀번호를 분실한 경우, 본 페이지에서 사업자 번호와 휴대폰번호를 인증하시면 아이디/비밀번호를 재등록하실 수 있습니다.
                 </p>
             </div>
             <div class="btn-wrapper">
