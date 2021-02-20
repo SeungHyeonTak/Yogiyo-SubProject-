@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #fff;
+    font: 14px/1.5;
+}
+body, input, select, textarea, button, table {
+    color: #616161;
+}
+input[type="text"], input[type="number"], input[type="password"], input.txt {
+    width: auto;
+    height: 24px;
+    line-height: 1;
+    font-size: 18px;
+    text-align: left;
+    padding: 4px 2px;
+    color: #231815;
+    border: 1px solid #cecece;
+    outline: 0;
+    background: transparent;
+}
+.spr {
+    display: inline-block;
+    background: url('../imgs/spr.png') no-repeat 0 0;
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+    vertical-align: middle;
+}
+button, .button {
+    display: inline-block;
+    height: 47px;
+    text-align: center;
+    background-color: #fa0050;
+    color: #fff;
+    border: 1px solid #b4060d;
+    box-shadow: inset 0 1px 0 #eb8c8f;
+    font-weight: bold;
+
+}
+.rd-wrapper {
+    .form-horizontal {
+        border-top: 1px solid #d0d0d0;
+        .registration-wrap {
+            max-width: 1020px;
+            min-width: 320px;
+            margin: 60px auto;
+            border-bottom: 1px solid #d0d0d0;
+            .control-group {
+                border-top: 1px solid #d0d0d0;
+                border-bottom: none;
+                position: relative;
+                padding: 7px;
+                .control-label {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    width: 180px;
+                    padding: 16px 0 0 10px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: #616161;
+                    background: #f1f1f1;
+                    letter-spacing: -1px;
+                }
+                .controls {
+                    padding-left: 203px;
+                    .alert-text {
+                        padding-left: 10px;
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+        .txts {
+            max-width: 1020px;
+            margin: -40px auto 50px auto;
+            padding-left: 10px;
+            font-size: 13px;
+            p {
+                padding-left: 24px;
+                text-indent: -24px;
+            }
+            .spr {
+                width: 17px;
+                height: 17px;
+                margin: -1px 8px 3px 0;
+                background-position: -207px -68px;
+            }
+            .link {
+                color: #fa0050;
+                text-decoration: underline;
+            }
+        }
+        .btn-wrapper {
+            margin-top: 25px;
+            text-align: center;
+            button {
+                width: 176px;
+            }
+        }
+    }
+}
