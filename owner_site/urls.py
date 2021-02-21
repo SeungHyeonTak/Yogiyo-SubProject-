@@ -9,6 +9,7 @@ urlpatterns = [
     path('owner/login/', views.owner_login, name='owner_login'),
     path('owner/signup/', views.owner_signup, name="owner_signup"),
     path('owner/join/process/', join.process, name="join_process"),
+    path('owner/join/request/', join.online_entry, name='join_request'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

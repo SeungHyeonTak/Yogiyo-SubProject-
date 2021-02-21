@@ -1,0 +1,288 @@
+{% extends "join/sidebar.html" %}
+{% load static %}
+{% load sass_tags %}
+
+{% block own_content %}
+<div class="own-content j4">
+    <div class="tit-area">
+        <h2>온라인 입점신청</h2>
+        <p>운영중인 음식점을 요기요에 신청하세요. 온라인 입점신청 중 어려움이 있으시면 고객센터(1661-5270)로 연락주세요</p>
+    </div>
+    <form method="POST" name="join-form" enctype="multipart/form-data" novalidate="novalidate">
+        {% csrf_token %}
+        <div class="tbl-caption frst">
+            사업자 정보
+            <span class="stxt">
+                <em>*</em>
+                필수 입력 정보
+            </span>
+        </div>
+        <table class="table-style1">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>
+                        사업자 번호
+                        <em>*</em>
+                    </th>
+                    <td>
+                        <input type="hidden" name="company_number" id="company_number">
+                        <input type="text" class="w-s" name="cn1" numberonly="true" maxlength="3">
+                        <span class="bar">-</span>
+                        <input type="text" class="w-s" name="cn2" numberonly="true" maxlength="2">
+                        <span class="bar">-</span>
+                        <input type="text" class="w-s" name="cn3" numberonly="true" maxlength="5">
+                        <button type="button" name="check_duplicate_button" class="btn-sm" data-confirm="0">조회</button>
+                        <span class="alert" name="cn-message"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        사업자등록증 사본등록
+                        <em>*</em>
+                    </th>
+                    <td class="add_file">
+                        <div class="filebox">
+                            <input class="upload-name" value="파일선택" disabled="disabled">
+                            <label for="filename">찾아보기</label>
+                            <input type="file" id="filename" name="business_license_file" class="upload-hidden">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        영업신고증 사본등록
+                        <em>*</em>
+                    </th>
+                    <td class="add_file">
+                        <div class="filebox">
+                            <input class="upload-name" value="파일선택" disabled="disabled">
+                            <label for="sales_declaration_file">찾아보기</label>
+                            <input type="file" id="sales_declaration_file" name="sales_declaration_file" class="upload-hidden">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        사업주명
+                        <em>*</em>
+                    </th>
+                    <td>
+                        <input type="text" class="w-l" name="owner_name" maxlength="10">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        사업자 휴대폰 번호
+                        <em>*</em>
+                    </th>
+                    <td>
+                        <input type="hidden" name="mobile_phone_number">
+                        <div class="select-style">
+                            <select name="mtel1" id="w-s">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                                <option value="0130">0130</option>
+                            </select>
+                        </div>
+                        <span class="bar">-</span>
+                        <input type="text" class="w-s" name="mtel2" numberonly="true">
+                        <span class="bar">-</span>
+                        <input type="text" class="w-s" name="mtel3" numberonly="true">
+                        <button type="button" class="btn-sm" name="send_veri_code_button">인증번호 전송</button>
+                        <p class="info-txt">인증번호를 받지 못했다면 [인증번호 재전송] 버튼을 클릭 해주세요.</p>
+                        <span class="alert" name="vericode_message"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        인증번호 입력
+                        <em>*</em>
+                    </th>
+                    <td>
+                        <input type="text" class="w-l" name="veri_code" numberonly="true">
+                        <button type="button" class="btn-sm" name="comfirm_veri_code_button" data-confirm="0">확인</button>
+                        <span class="alert" name="confirm_vericode_message"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="tbl-caption">음식점 정보</div>
+        <table class="table-style1">
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>
+                        음식점 이름
+                        <em>*</em>
+                    </th>
+                    <td>
+                        <input type="text" class="w-l" name="restaurant_number" maxlength="20">
+                    </td>
+                </tr>
+                <tr>
+                    <th>음식점 전화번호</th>
+                    <td>
+                        <input type="hidden" name="phone_number">
+                        <div class="select_style">
+                            <select name="tel1" id="tel1" class="w-s">
+                                <option value="02">02</option>
+                                <option value="031">031</option>
+                                <option value="032">032</option>
+                                <option value="033">033</option>
+                                <option value="041">041</option>
+                                <option value="042">042</option>
+                                <option value="043">043</option>
+                                <option value="044">044</option>
+                                <option value="051">051</option>
+                                <option value="052">052</option>
+                                <option value="053">053</option>
+                                <option value="054">054</option>
+                                <option value="055">055</option>
+                                <option value="061">061</option>
+                                <option value="062">062</option>
+                                <option value="063">063</option>
+                                <option value="064">064</option>
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                                <option value="0130">0130</option>
+                                <option value="070">070</option>
+                                <option value="080">080</option>
+                                <option value="0507">0507</option>
+                                <option value="0506">0506</option>
+                                <option value="0505">0505</option>
+                                <option value="0504">0504</option>
+                                <option value="0503">0503</option>
+                                <option value="0502">0502</option>
+                                <option value="0303">0303</option>
+                            </select>
+                        </div>
+                        <span class="bar">-</span>
+                        <input type="text" class="w-s" name="tel2" numberonly="true">
+                        <span class="bar">-</span>
+                        <input type="text" class="w-s" name="tel3" numberonly="true">
+                    </td>
+                </tr>
+                <tr>
+                    음식점 주소
+                    <th>
+                        <em>*</em>
+                    </th>
+                    <td name="selected_address">
+                        <input type="hidden" name="zipcode">
+                        <input type="hidden" name="street">
+                        <input type="text" class="w-xl" placeholder="동, 면, 읍" name="address_display" readonly="readonly" data-toggle="modal" data-target="#myModal">
+                        <button type="button" class="btn-sm" data-toggle="modal" data-target="#myModal">주소검색</button>
+                        <p class="sb-addr">
+                            <input type="text" class="w-xl" placeholder="상세주소" name="street_number">
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        업종 카테고리
+                        <em>*</em>
+                    </th>
+                    <td>
+                        <div class="select-style select-style1">
+                            <select name="category">
+                                <option value="">선택해주세요</option>
+                                <option value="1">분식</option>
+                                <option value="2">중식</option>
+                                <option value="3">찜탕</option>
+                                <option value="4">치킨</option>
+                                <option value="5">한식</option>
+                                <option value="6">족발보쌈</option>
+                                <option value="7">피자양식</option>
+                                <option value="8">일식돈까스</option>
+                                <option value="9">카페디저트</option>
+                                <option value="10">프렌차이즈</option>
+                            </select>
+                        </div>
+                        <p class="info-txt">야식카테고리는 회사 정책상 영업시간에 따라 노출 되는 카테고리로 단독 설정이 불가능합니다.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        배달 가능 여부
+                        <em>*</em>
+                    </th>
+                    <td class="rs">
+                        <label class="radio-inline">
+                            <input type="radio" name="delivery_option" value="배달만 가능" checked="checked"> 배달만 가능
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="delivery_option" value="모두 가능" checked="checked"> 배달+테이크아웃 가능
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        전단지 등록
+                    </th>
+                    <td class="add_file">
+                        <div class="filebox">
+                            <input class="upload-name" value="파일선택" disabled="disabled">
+                            <label for="filename1">찾아보기</label>
+                            <input type="file" id="filename1" name="flyer_file" class="upload-hidden">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="terms">
+            <strong>개인정보 수집 및 이용 동의</strong>
+            <p class="p1">
+                "회사"는 다음과 같이 "사장님"의 개인정보를 수집합니다. 처리하고 있는 개인정보는 다음의 수집·이용목적 이외의 용도로는 활용되지 않으며, 수집·이용목적이 변경되는 경우에는 「개인정보보호법」에 따라 별도의 동의를 받는 등 필요한 조치를 이행합니다.
+            </p>
+            <p>요기요 온라인 입점신청 시 수집하는 개인정보</p>
+            <table class="section">
+                <tbody>
+                    <tr>
+                        <th>개인정보 수집 목적</th>
+                        <th>수집하는 개인정보 항목</th>
+                        <th>보유 및 이용기간</th>
+                        <th>수집방법</th>
+                    </tr>
+                    <tr>
+                        <td>요기요 입점신청</td>
+                        <td>
+                            [필수] 사업자번호, 사업자등록증, 영업신고등록증, 사업주명, 사업자 휴대폰번호, 인증번호, 음식점 이름, 음식점 주소, 업종 카테고리, 배달가능 여부
+                            <br>
+                            [선택] 음식점전화번호, 전단지
+                        </td>
+                        <td>목적달성 후 즉시 파기</td>
+                        <td>온라인</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="chk-item">
+            <label>
+                <input type="checkbox" name="terms">
+                <strong>개인정보 수집 및 이용에 동의합니다.(필수)</strong>
+            </label>
+        </p>
+        <div class="btn-set1">
+            <button type="submit" class="btn-type1" name="save_button">입점 신청 완료</button>
+            <a href="{% url 'join_process' %}" class="btn-right">
+                <span>입점절차 살펴보기</span>  ▸
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}
