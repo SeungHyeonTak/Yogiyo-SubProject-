@@ -1,0 +1,26 @@
+.own-side-container {
+    padding-bottom: 90px;
+    min-width: 996px;
+    .side-bar {
+        padding-bottom: 90px;
+        float: left;
+        ul {
+            width: 186px;
+            margin: 16px 0 0 16px;
+            li {
+                border-bottom: 1px solid #E0E0E0;
+                a {
+                    display: block;
+                    color: #343434;
+                    font-size: 14px;
+                    text-decoration: none;
+                    padding: 20px 0 20px 8px;
+                }
+                a:hover {
+                    color: #fa0050;
+                    outline: 0;
+                }
+            }
+        }
+    }
+}
