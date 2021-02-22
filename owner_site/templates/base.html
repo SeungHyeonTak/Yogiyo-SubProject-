@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>요기요 사장님 사이트</title>
+    <!-- favicon.ico 404(Not Found) -->
+    <link rel="icon" href="{% static 'imgs/yogiyo_favicon.ico' %}">
+
+    {% load sass_tags %}
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% sass_src 'css/base.scss' %}" type="text/css">
+    {% block extrahead %}
+    {% endblock %}
+</head>
+<body>
+<div id="nav" class="owner-header">
+    <div class="clearfix">
+        <h1>
+            <a href="/" id="owner-name">사장님 사이트</a>
+        </h1>
+        <ul class="nav-ul">
+            <li class="n1"><a href="{% url 'owner_login' %}">내 업소 관리</a></li>
+            <li class="n3"><a href="{% url 'join_process' %}">입점 안내</a></li>
+        </ul>
+        <ul class="ext-ul">
+            <li class="outlink"><a href="#">매출관리</a></li>
+            <li class="outlink"><a href="#">우리가게 비즈센터</a></li>
+            <li class="outlink"><a href="#">알뜰쇼핑</a></li>
+            <li class="outlink"><a href="#">사장님포털</a></li>
+            <li class="dropdown">
+                <a href class="dropbtn">전체메뉴</a>
+                <div class="dropdown-content">
+                    <div>
+                        <ul>
+                            <li><a href="#"><strong>내 업소 관리</strong></a></li>
+                            <li><a href="#">주문확인</a></li>
+                            <li><a href="#">통계</a></li>
+                            <li><a href="#">내 정보관리</a></li>
+                            <li><a href="#">품절 메뉴 관리</a></li>
+                            <li><a href="#">메뉴가격 관리</a></li>
+                            <li><a href="#">영업일 관리</a></li>
+                            <li><a href="#">사장님알림 관리</a></li>
+                            <li><a href="#">리뷰 관리</a></li>
+                            <li><a href="#">주류메뉴 등록요청</a></li>
+                            <li><a href="#">배달지역 관리</a></li>
+                            <li><a href="#">할인관리</a></li>
+                            <li><a href="#">자주 묻는 질문</a></li>
+                            <li><a href="#">요기요 소식</a></li>
+                            <li><a href="#">요기요에 질문하기</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="#"><strong>사장님 혜택</strong></a></li>
+                            <li><a href="#">우수음식점</a></li>
+                            <li><a href="#">요기요 안전배달 캠페인</a></li>
+                            <li><a href="#">요기요가 배달 갑니다</a></li>
+                            <li><a href="#">사장님 희망배달</a></li>
+                            <li><a href="#">두루누리 사회보험료 지원</a></li>
+                            <li><a href="#">일자리 안정자금</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="#"><strong>입점안내</strong></a></li>
+                            <li><a href="#">요기요 소개</a></li>
+                            <li><a href="#">입점상품 소개</a></li>
+                            <li><a href="#">입점절차</a></li>
+                            <li><a href="#">온라인 입점신청</a></li>
+                            <li><a href="#">주문전달방식 안내</a></li>
+                            <li><a href="#">PC 주문접수 계정관리</a></li>
+                            <li><a href="#">결제와 정산</a></li>
+                            <li><a href="#">요기요 활용 Tip</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="#"><strong>우리가게 비즈센터</strong></a></li>
+                            <li><a href="#">우리동네 플러스</a></li>
+                            <li><a href="#">입찰등록</a></li>
+                            <li><a href="#">광고현황</a></li>
+                            <li><a href="#">입찰이력</a></li>
+                            <li><a href="#">비즈머니 관리</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>|<a href="{% url 'owner_login' %}">로그인</a></li>
+        </ul>
+    </div>
+</div>
+{% block sidebar %}
+{% endblock %}
+{% block content %}
+{% endblock %}
+<div class="footer">
+    <div class="footer-menu">
+        <ul>
+            <li>
+                <a href="#">서비스 이용 약관</a>
+            </li>
+            <li>
+                <a href="#">사이트 이용 약관</a>
+            </li>
+            <li>
+                <a href="#"><strong>개인정보 수집 및 이용 방침</strong></a>
+            </li>
+            <li>
+                <a href="#">전자금융거래 이용 약관</a>
+            </li>
+            <li>
+                <a href="#">고객만족센터</a>
+            </li>
+            <li class="sns-link">
+                <a href="#" class="facebook"><span></span>페이스북</a>
+                <span></span>
+                <a href="#" class="blog"><span></span>블로그</a>
+            </li>
+        </ul>
+    </div>
+    <div class="company-wrap">
+        <div class="company-logo">
+            <a href="#">요기요</a>
+        </div>
+        <div class="company-info">
+            <p>
+                <strong>유한책임회사 딜리버리히어로코리아</strong>
+                <br>
+                서울시 서초구 서초대로38길 12 마제스타시티 타워2 17츨 유한책임회사 딜리버리히어로코리아
+                <span class="bar">|</span>
+                대표자 : 강신봉
+                <span class="bar">|</span>
+                사업자등록번호:211-88-68802
+                <a href="#" class="biz-info">
+                    사업자 정보 확인
+                </a>
+                <br>
+                통신판매업신고:제 2018-서울서초-2635호
+                <span class="bar">|</span>
+                개인정보관리책임자:조현준
+                <a href="#">(privary@yogiyo.co.kr)</a>
+                <span class="bar">|</span>
+                제휴문의
+                <a href="#">partnership@deliveryhero.co.kr</a>
+                <span class="bar">|</span>
+                고객만족센터:
+                <a href="#">support@yogiyo.co.kr</a>
+                <br>
+                호스팅 제공자:카페24 주식회사
+            </p>
+        </div>
+    </div>
+    <div class="service-info">
+        <div class="bpg">
+            <a href="#">
+                <span class="img"></span>
+                <span class="text">
+                    요기요
+                    <br>
+                    안심센터
+                </span>
+            </a>
+        </div>
+        <div class="cleanreview">
+            <a href="#">
+                <span class="img"></span>
+                <span class="text">
+                    요기요 100%
+                    <br>
+                    클린리뷰
+                </span>
+            </a>
+        </div>
+        <div class="csc">
+            <em>고객만족센터</em>
+            <strong>1661-5270</strong>
+            <span>24시간, 연중무류</span>
+        </div>
+    </div>
+    <div class="guide">
+        <p>
+            유한책임회사 딜리버리히어로코리아는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 상품/거래정보 및 거래와 관련하여 요기요에 등록된 판매자의 고의 또는 과실로 소비자에게 발생하는 손해에 대해 유한책임회사 딜리버리히어로코리아는 책임을 지지 않습니다. 상품 및 거래에 관하여 보다 정확한 정보는 해당 판매자에게 직접 확인하여 주시기 바랍니다. Copyright YOGIYO. All Rights Reserved.
+        </p>
+    </div>
+</div>
+</body>
+</html>

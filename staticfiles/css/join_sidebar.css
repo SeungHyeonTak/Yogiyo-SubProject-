@@ -1,0 +1,13 @@
+.own-side-container { padding-bottom: 90px; min-width: 996px; }
+
+.own-side-container .side-bar { padding-bottom: 90px; float: left; }
+
+.own-side-container .side-bar ul { width: 186px; margin: 16px 0 0 16px; }
+
+.own-side-container .side-bar ul li { border-bottom: 1px solid #E0E0E0; }
+
+.own-side-container .side-bar ul li a { display: block; color: #343434; font-size: 14px; text-decoration: none; padding: 20px 0 20px 8px; }
+
+.own-side-container .side-bar ul li a:hover { color: #fa0050; outline: 0; }
+
+/*# sourceMappingURL=join_sidebar.css.map */

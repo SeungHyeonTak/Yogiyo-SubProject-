@@ -1,0 +1,45 @@
+.own-content { position: relative; float: left; width: 760px; margin: 0 0 0 34px; }
+
+.own-content .btn-type1 { height: 50px; line-height: 48px; background: #fa0050; border: 1px solid #fa0050; font-size: 14px; font-weight: bold; color: #FFF; padding: 0; margin: 0; border-radius: 0; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.own-content .tit-area { position: relative; border-bottom: 2px solid #343434; padding: 27px 0; margin-bottom: 40px; }
+
+.own-content .tit-area h2 { color: #343434; font-size: 31px; font-weight: normal; }
+
+.own-content .tit-area p { color: #888; font-size: 12px; margin-top: 5px; }
+
+.own-content .p1 p { color: #343434; font-size: 16px; font-weight: bold; padding-bottom: 23px; }
+
+.own-content .p1 img { display: block; width: 88px; margin: 36px auto; }
+
+.own-content .p1 ul { background: url("../imgs/img-j3-bg1.png") no-repeat; width: 760px; height: 265px; }
+
+.own-content .p1 ul li { float: left; width: 33%; color: #888; font-size: 12px; line-height: 1.6; text-align: center; }
+
+.own-content .p1 ul li strong { display: block; color: #343434; font-size: 14px; margin-bottom: 10px; }
+
+.own-content .p1 ul li .fst { padding-bottom: 20px; border-bottom: 1px solid #e5e5e5; margin: 0 30px 0 20px; }
+
+.own-content .p1 ul li .fst img { width: 147px; margin: 30px auto 10px auto; display: block; }
+
+.own-content .p1 ul li .scnd img { width: 106px; margin: 20px auto 10px auto; }
+
+.own-content .p1 ul li .scnd a { color: #666; font-weight: bold; text-decoration: underline; }
+
+.own-content .p1 .btn-set1 { position: relative; text-align: center; margin-top: 40px; }
+
+.own-content .p1 .btn-set1 .btn-type1 { display: inline-block; text-decoration: none; padding: 0 30px; margin-top: 30px; }
+
+.own-content .p2 ul { margin: 40px 11px 30px 11px; }
+
+.own-content .p2 ul li { background: url("../imgs/ico-li2.png") 0 6px no-repeat; border-bottom: 1px solid #E0E0E0; font-size: 12px; line-height: 1.6; padding: 0 0 30px 36px; margin-top: 30px; }
+
+.own-content .p2 ul li p { margin-top: 5px; }
+
+.own-content .p2 ul li > strong { color: #343434; font-size: 21px; font-weight: normal; }
+
+.own-content .p2 ul li:first-child { background: url("../imgs/ico-li1.png") 0 6px no-repeat; color: #fa0050; margin-top: 0; }
+
+.own-content .p2 ul li:first-child strong { color: #fa0050; }
+
+/*# sourceMappingURL=join_process.css.map */
