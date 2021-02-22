@@ -21,7 +21,7 @@
                     <img src="{% static 'imgs/img-j3-1-2.png' %}" alt="이미지2 깨짐">
                     사장님 사이트에서 직접 작성하실<br>
                     수 있습니다.
-                    <a href="#">온라인 입점신청</a>
+                    <a href="{% url 'join_request' %}">온라인 입점신청</a>
                 </div>
             </li>
             <li>
@@ -38,7 +38,7 @@
             </li>
         </ul>
         <div class="btn-set1">
-            <a href="#" class="btn-type1">온라인 입점신청</a>
+            <a href="{% url 'join_request' %}" class="btn-type1">온라인 입점신청</a>
         </div>
     </div>
     <div class="p2">
