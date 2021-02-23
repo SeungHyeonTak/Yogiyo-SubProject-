@@ -6,9 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 def get_license_copy_path(instance, filename):
-    return f'license/copy' \
-           f'/{instance.pk if instance.pk else int(time.time())}_{uuid4().hex}.' \
-           f'{filename(".")[-1] if filename.split(".") else "jpg"}'
+    return f'license/copy/{instance.pk if instance.pk else int(time.time())}_{uuid4().hex}.{filename(".")[-1] if filename.split(".") else "jpg"}'
 
 
 def get_business_report_path(instance, filename):
@@ -82,7 +80,7 @@ class ApplicationForm(models.Model):
     address = models.CharField(verbose_name=_('Address'), max_length=255)
     delivery = models.IntegerField(verbose_name=_('Delivery'), choices=DELIVERY_CHOICE)
     leaflet = models.ImageField(verbose_name=_('Leaflet'), upload_to=get_leaflet_path, blank=True, null=True)
-    is_check = models.BooleanField(verbose_name=_('is check'), default=False)  # 입점신청 확인 체크
+    is_check = models.BooleanField(verbose_name=_('is check'), default=False)  # 입점신청 확인 체크(개인정보 수집 및 이용에 동의)
     reason = models.TextField(verbose_name=_('Reason'), blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)

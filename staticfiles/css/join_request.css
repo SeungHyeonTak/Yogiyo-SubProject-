@@ -6,6 +6,8 @@ table { border-collapse: collapse; border-spacing: 0; text-indent: initial; }
 
 option { font-weight: normal; display: block; white-space: pre; min-height: 1.2em; padding: 0px 2px 1px; }
 
+button { cursor: pointer; background: transparent; }
+
 .join-form .bar { padding: 0 3px; }
 
 .join-form .tbl-caption { padding-top: 0; color: #343434; font-size: 16px; font-weight: bold; padding: 13px 0 23px 0; }
