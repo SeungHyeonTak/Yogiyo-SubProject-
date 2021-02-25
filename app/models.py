@@ -1,29 +1,61 @@
-import time
+import os
 from uuid import uuid4
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import ugettext_lazy as _
+from django.utils import timezone
 
 
 def get_license_copy_path(instance, filename):
-    return f'license/copy/{instance.pk if instance.pk else int(time.time())}_{uuid4().hex}.{filename(".")[-1] if filename.split(".") else "jpg"}'
+    url = 'license_copy'
+    ymd_path = timezone.now().strftime('%Y/%m/%d')
+    uuid_name = uuid4().hex
+    extension = os.path.splitext(filename)[-1].lower()
+
+    return '/'.join([
+        url,
+        ymd_path,
+        uuid_name + extension,
+    ])
 
 
 def get_business_report_path(instance, filename):
-    return f'business/report/' \
-           f'{instance.pk if instance.pk else int(time.time())}_{uuid4().hex}.' \
-           f'{filename(".")[-1] if filename.split(".") else "jpg"}'
+    url = 'business_report'
+    ymd_path = timezone.now().strftime('%Y/%m/%d')
+    uuid_name = uuid4().hex
+    extension = os.path.splitext(filename)[-1].lower()
+
+    return '/'.join([
+        url,
+        ymd_path,
+        uuid_name + extension,
+    ])
 
 
 def get_leaflet_path(instance, filename):
-    return f'leaflet/' \
-           f'{instance.pk if instance.pk else int(time.time())}_{uuid4().hex}.' \
-           f'{filename(".")[-1] if filename.split(".") else "jpg"}'
+    url = 'leaflet'
+    ymd_path = timezone.now().strftime('%Y/%m/%d')
+    uuid_name = uuid4().hex
+    extension = os.path.splitext(filename)[-1].lower()
+
+    return '/'.join([
+        url,
+        ymd_path,
+        uuid_name + extension,
+    ])
 
 
 def get_food_image_path(instance, filename):
-    return f'food/{instance.pk if instance.pk else int(time.time())}_' \
-           f'{uuid4().hex}.{filename(".")[-1] if filename.split(".") else "jpg"}'
+    url = 'food_image'
+    ymd_path = timezone.now().strftime('%Y/%m/%d')
+    uuid_name = uuid4().hex
+    extension = os.path.splitext(filename)[-1].lower()
+
+    return '/'.join([
+        url,
+        ymd_path,
+        uuid_name + extension,
+    ])
 
 
 class Category(models.Model):
