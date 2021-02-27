@@ -101,7 +101,7 @@ class ApplicationForm(models.Model):
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='categorys')
 
-    license_number = models.CharField(verbose_name=_('License Number'), max_length=15)
+    license_number = models.CharField(verbose_name=_('License Number'), max_length=15, unique=True)
     license_copy = models.ImageField(verbose_name=_('License Copy'), upload_to=get_license_copy_path)  # 사업자등록증 사본
     report = models.ImageField(verbose_name=_('Report'), upload_to=get_business_report_path)  # 영업신고증 사본
     business_name = models.CharField(verbose_name=_('Business Name'), max_length=25)
