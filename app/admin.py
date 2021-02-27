@@ -18,7 +18,8 @@ class PaymentTypeAdmin(admin.ModelAdmin):
 
 @admin.register(ApplicationForm)
 class ApplicationFormAdmin(admin.ModelAdmin):
-    list_display = ('id', 'category', 'business_name',)
+    list_display = ('id', 'category', 'business_name', 'license_number',)
+    search_fields = ('business_name', 'license_number',)
     list_display_links = ('business_name',)
     list_filter = ('business_name',)
 
