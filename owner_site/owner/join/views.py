@@ -27,21 +27,29 @@ def online_entry(request):
         - 전단지 등록
 
     """
+    # todo : 사업자 번호 문자열 ㄴㄴ javascript 처리 하기
+    context = {}
+
     if request.method == 'POST':
-        business_number1 = request.POST.get('cn1')
-        business_number2 = request.POST.get('cn2')
-        business_number3 = request.POST.get('cn3')
-        license_number = business_number1 + business_number2 + business_number3
-        # todo : 사업자 번호 문자열 ㄴㄴ javascript 처리 하기
+        license_number = f'{request.POST.get("cn1")}-{request.POST.get("cn2")}-{request.POST.get("cn3")}'
+        print(f'license_number : {license_number}')
         try:
-            ap = ApplicationForm.objects.filter(license_number=license_number)
-            if ap:
-                print('??')
-            print(f'ap : {ap}')
-            # todo: upload_to 부분 수정하기
+            af_check = ApplicationForm.objects.filter(license_number=license_number)
+            if af_check:
+                context.update({
+                    'error': '이미 등록되어 있는 업체입니다.',
+                    'license_number': license_number
+                })
+            elif not af_check:
+                context.update({
+                    'success': '입점신청 가능합니다.',
+                    'license_number': license_number
+                })
+            else:
+                context.update({'none': '사업자번호를 확인해주세요.'})
 
         except Exception as e:
             pass
+        print(f'context : {context}')
 
-    context = {}
     return render(request, 'join/request.html', context)

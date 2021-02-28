@@ -384,7 +384,10 @@ $RECYCLE.BIN/
 # secret key
 secret.json
 
-# static file (css, imgs, js)
+# static file (css, imgs, ts)
 static/css
 static/imgs
-static/js
+static/ts
+
+# node_modules
+node_modules

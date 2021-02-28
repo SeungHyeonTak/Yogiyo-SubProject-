@@ -3,6 +3,13 @@
 그리고 사장님 사이트(백오피스)는 Django_template을 사용하여 html, scss, javascript를 사용한다.
 (* 사장님 사이트는 효과적인 작업을 위해 기본 설명만 있는 페이지는 제외함)
 
+### Version (버전 내용)
+
+-----
+- python version `3.6.4`
+- django version `3.1.4`
+- node version `v14.16.0`
+
 ### Installation (설치 방법)
 
 -----
@@ -10,6 +17,15 @@
 ```bash
 $ pyenv virtualenv 3.6.4 YGY
 $ pyenv local pyenv
+```
+
+- node install
+
+브라우저에서 각 사양에 맞는 버전으로 install  
+
+- npm install
+```bash
+$ npm i
 ```
 
 - requirements.txt install
