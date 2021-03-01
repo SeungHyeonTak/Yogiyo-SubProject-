@@ -8,7 +8,6 @@
         <h2>온라인 입점신청</h2>
         <p>운영중인 음식점을 요기요에 신청하세요. 온라인 입점신청 중 어려움이 있으시면 고객센터(1661-5270)로 연락주세요</p>
     </div>
-    <input type="button" id="btn" value="0">
     <form method="post" name="join-form" enctype="multipart/form-data" novalidate="novalidate">
         {% csrf_token %}
         <div class="join-form">
@@ -31,20 +30,15 @@
                         <em>*</em>
                     </th>
                     <td>
-                        <input type="text" class="w-s" name="cn1" numberonly="true" maxlength="3"
-                               value="{{ request.POST.cn1 }}">
+                        <input type="hidden" name="company_number" id="company_number" value="">
+                        <input type="text" class="w-s" name="cn1" numberOnly="true" maxlength="3">
                         <span class="bar">-</span>
-                        <input type="text" class="w-s" name="cn2" numberonly="true" maxlength="2"
-                               value="{{ request.POST.cn2 }}">
+                        <input type="text" class="w-s" name="cn2" numberOnly="true" maxlength="2">
                         <span class="bar">-</span>
-                        <input type="text" class="w-s" name="cn3" numberonly="true" maxlength="5"
-                               value="{{ request.POST.cn3 }}">
-                        <button type="button" name="check_duplicate_button" class="btn-sm" id="check_duplicate" data-confirm="0">조회</button>
-                        {% if error %}
-                        <span class="alert" name="cn-message">{{ error }}</span>
-                        {% else %}
-                        <span class="alert" name="cn-message">{{ success }}</span>
-                        {% endif %}
+                        <input type="text" class="w-s" name="cn3" numberOnly="true" maxlength="5">
+                        <button type="button" name="check_duplicate_button" class="btn-sm" data-confirm="0">조회</button>
+                        <span class="alert" name="cn-message" style="display: none;"></span>
+
                     </td>
                 </tr>
                 <tr>

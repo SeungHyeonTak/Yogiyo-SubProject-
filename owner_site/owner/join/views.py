@@ -1,9 +1,11 @@
+import json
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 from app.models import ApplicationForm
 
 
-def process(request):
+def process(request) -> dict:
     context = {}
     return render(request, 'join/process.html', context)
 
@@ -27,29 +29,44 @@ def online_entry(request):
         - 전단지 등록
 
     """
-    # todo : 사업자 번호 문자열 ㄴㄴ javascript 처리 하기
     context = {}
 
-    if request.method == 'POST':
-        license_number = f'{request.POST.get("cn1")}-{request.POST.get("cn2")}-{request.POST.get("cn3")}'
-        print(f'license_number : {license_number}')
-        try:
-            af_check = ApplicationForm.objects.filter(license_number=license_number)
-            if af_check:
-                context.update({
-                    'error': '이미 등록되어 있는 업체입니다.',
-                    'license_number': license_number
-                })
-            elif not af_check:
-                context.update({
-                    'success': '입점신청 가능합니다.',
-                    'license_number': license_number
+    return render(request, 'join/request.html', context)
+
+
+@csrf_exempt
+def ajax_license_validate(request):
+    license_number = request.POST.get('company_number')
+    return_type = 'application/json'
+    return_status_code = 200
+    response = {}
+
+    license_number_len = len(license_number.replace("-", ""))
+    if license_number_len != 10:
+        response.update({
+            'success': False,
+            'error': {
+                'code': 'invalid_company_number'
+            }
+        })
+    else:
+        af = ApplicationForm.objects.filter(license_number=license_number)
+        if af:
+            if af.filter(is_check=True, final_confirmation=False):
+                response.update({
+                    'success': False,
+                    'error': {
+                        'code': 'already_request'
+                    }
                 })
             else:
-                context.update({'none': '사업자번호를 확인해주세요.'})
+                response.update({
+                    'success': False,
+                    'error': {
+                        'code': 'is_duplicate'
+                    }
+                })
+        else:
+            response.update({'success': True})
 
-        except Exception as e:
-            pass
-        print(f'context : {context}')
-
-    return render(request, 'join/request.html', context)
+    return HttpResponse(json.dumps(response), return_type, return_status_code)
