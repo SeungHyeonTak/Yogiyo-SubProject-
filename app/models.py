@@ -1,31 +1,61 @@
-import time
+import os
 from uuid import uuid4
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import ugettext_lazy as _
+from django.utils import timezone
 
 
 def get_license_copy_path(instance, filename):
-    return f'license/copy' \
-           f'/{instance.pk if instance.pk else int(time.time())}_{uuid4().hex}.' \
-           f'{filename(".")[-1] if filename.split(".") else "jpg"}'
+    url = 'license_copy'
+    ymd_path = timezone.now().strftime('%Y/%m/%d')
+    uuid_name = uuid4().hex
+    extension = os.path.splitext(filename)[-1].lower()
+
+    return '/'.join([
+        url,
+        ymd_path,
+        uuid_name + extension,
+    ])
 
 
 def get_business_report_path(instance, filename):
-    return f'business/report/' \
-           f'{instance.pk if instance.pk else int(time.time())}_{uuid4().hex}.' \
-           f'{filename(".")[-1] if filename.split(".") else "jpg"}'
+    url = 'business_report'
+    ymd_path = timezone.now().strftime('%Y/%m/%d')
+    uuid_name = uuid4().hex
+    extension = os.path.splitext(filename)[-1].lower()
+
+    return '/'.join([
+        url,
+        ymd_path,
+        uuid_name + extension,
+    ])
 
 
 def get_leaflet_path(instance, filename):
-    return f'leaflet/' \
-           f'{instance.pk if instance.pk else int(time.time())}_{uuid4().hex}.' \
-           f'{filename(".")[-1] if filename.split(".") else "jpg"}'
+    url = 'leaflet'
+    ymd_path = timezone.now().strftime('%Y/%m/%d')
+    uuid_name = uuid4().hex
+    extension = os.path.splitext(filename)[-1].lower()
+
+    return '/'.join([
+        url,
+        ymd_path,
+        uuid_name + extension,
+    ])
 
 
 def get_food_image_path(instance, filename):
-    return f'food/{instance.pk if instance.pk else int(time.time())}_' \
-           f'{uuid4().hex}.{filename(".")[-1] if filename.split(".") else "jpg"}'
+    url = 'food_image'
+    ymd_path = timezone.now().strftime('%Y/%m/%d')
+    uuid_name = uuid4().hex
+    extension = os.path.splitext(filename)[-1].lower()
+
+    return '/'.join([
+        url,
+        ymd_path,
+        uuid_name + extension,
+    ])
 
 
 class Category(models.Model):
@@ -71,19 +101,20 @@ class ApplicationForm(models.Model):
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='categorys')
 
-    license_number = models.CharField(verbose_name=_('License Number'), max_length=15)
-    license_copy = models.ImageField(verbose_name=_('License Copy'), upload_to=get_license_copy_path)  # 사업자등록증 사본
-    report = models.ImageField(verbose_name=_('Report'), upload_to=get_business_report_path)  # 영업신고증 사본
-    business_name = models.CharField(verbose_name=_('Business Name'), max_length=25)
-    business_phone = models.CharField(verbose_name=_('Business Phone'), max_length=20)
+    license_number = models.CharField(verbose_name=_('사업자등록번호'), max_length=15, unique=True)
+    license_copy = models.ImageField(verbose_name=_('사업자등록증 사본'), upload_to=get_license_copy_path)
+    report = models.ImageField(verbose_name=_('영업신고증 사본'), upload_to=get_business_report_path)
+    business_name = models.CharField(verbose_name=_('사업주 명'), max_length=25)
+    business_phone = models.CharField(verbose_name=_('사업자 휴대폰 번호'), max_length=20)
 
-    restaurant_name = models.CharField(verbose_name=_('Restaurant Name'), max_length=25)
-    restaurant_phone = models.CharField(verbose_name=_('Restaurant Phone'), max_length=20, blank=True, null=True)
-    address = models.CharField(verbose_name=_('Address'), max_length=255)
-    delivery = models.IntegerField(verbose_name=_('Delivery'), choices=DELIVERY_CHOICE)
-    leaflet = models.ImageField(verbose_name=_('Leaflet'), upload_to=get_leaflet_path, blank=True, null=True)
-    is_check = models.BooleanField(verbose_name=_('is check'), default=False)  # 입점신청 확인 체크
-    reason = models.TextField(verbose_name=_('Reason'), blank=True, null=True)
+    restaurant_name = models.CharField(verbose_name=_('음식점 이름'), max_length=25)
+    restaurant_phone = models.CharField(verbose_name=_('음식점 전화번호'), max_length=20, blank=True, null=True)
+    address = models.CharField(verbose_name=_('주소(행정)'), max_length=255)
+    address_detail = models.CharField(verbose_name=_('주소(상세)'), max_length=255)
+    delivery = models.IntegerField(verbose_name=_('배달 가능 여부'), choices=DELIVERY_CHOICE)
+    leaflet = models.ImageField(verbose_name=_('전단지 등록'), upload_to=get_leaflet_path, blank=True, null=True)
+    is_check = models.BooleanField(verbose_name=_('개인정보 수집 동의'), default=False)
+    final_confirmation = models.BooleanField(verbose_name=('입점 신청서 제출 확인'), default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
