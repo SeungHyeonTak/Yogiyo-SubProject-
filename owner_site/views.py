@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 
 def owner_index(request):
@@ -17,3 +18,4 @@ def owner_signup(request):
     test = 'signup'
     context = {'test': test}
     return render(request, 'owner_signup.html', context)
+

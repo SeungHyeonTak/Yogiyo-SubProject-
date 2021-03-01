@@ -13,3 +13,7 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += [
+    path('ajax/join/license_number/validate/', join.ajax_license_validate),
+]

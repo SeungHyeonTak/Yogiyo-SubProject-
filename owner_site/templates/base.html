@@ -7,6 +7,9 @@
     <!-- favicon.ico 404(Not Found) -->
     <link rel="icon" href="{% static 'imgs/yogiyo_favicon.ico' %}">
 
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
     {% load sass_tags %}
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% sass_src 'css/base.scss' %}" type="text/css">
@@ -184,5 +187,7 @@
         </p>
     </div>
 </div>
+{% block scripts %}
+{% endblock %}
 </body>
 </html>
