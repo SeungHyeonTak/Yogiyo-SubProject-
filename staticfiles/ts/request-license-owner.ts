@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $(document).on("keyup", "input:text[numberOnly]", function(){
         let replaceId = /[^0-9]/gi;
-        let space = ""
+        let space: string = ""
         $(this).val($(this).val().toString().replace(replaceId, space));
     });
 
@@ -49,5 +49,20 @@ $(document).ready(function() {
                 }
             }
         });
+    });
+
+    var fileTarget = $('.upload-hidden');
+
+    fileTarget.on('change', function(){
+        if (window.FileReader){
+            // 최신 브라우저
+            var filename = (<HTMLInputElement>$(this)[0]).files[0].name;
+        }
+        else {
+            // 예전 브라우저
+            var filename = $(this).val().toString().split('/').pop().split('\\').pop();
+        }
+
+        $(this).siblings('.upload-name').val(filename);
     });
 });
