@@ -45,9 +45,6 @@ $(document).ready(function () {
             }
         });
     });
-    console.log(this);
-    console.log($(this));
-    console.log($(this)[0]);
     var fileTarget = $('.upload-hidden');
     fileTarget.on('change', function () {
         if (window.FileReader) {
