@@ -12,24 +12,12 @@ def process(request) -> dict:
 
 @csrf_exempt
 def online_entry(request):
-    """
-    - 사업자 정보
-        - 사업자 번호
-        - 사업자등록증 사본등록
-        - 영업신고증 사본등록
-        - 사업주 명
-        - 사업자 휴대폰 번호
-        - 인증번호 입력
-    - 음식점 정보
-        - 음식점 이름
-        - 음식점 전화번호
-        - 음식점 주소
-        - 업종 카테고리
-        - 배달 가능 여부
-        - 전단지 등록
-
-    """
     context = {}
+    phone_first_numbers = ['010', '011', '016', '017', '018', '019', '0130']
+
+    context.update({
+        'phone_first_numbers': phone_first_numbers
+    })
 
     return render(request, 'join/request.html', context)
 

@@ -86,13 +86,9 @@
                         <input type="hidden" name="mobile_phone_number">
                         <div class="select-style">
                             <select name="mtel1" id="w-s">
-                                <option value="010">010</option>
-                                <option value="011">011</option>
-                                <option value="016">016</option>
-                                <option value="017">017</option>
-                                <option value="018">018</option>
-                                <option value="019">019</option>
-                                <option value="0130">0130</option>
+                                {% for phone_number in phone_first_numbers %}
+                                    <option value="{{ phone_number }}">{{ phone_number }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <span class="bar">-</span>
