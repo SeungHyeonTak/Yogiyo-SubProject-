@@ -65,4 +65,13 @@ $(document).ready(function() {
 
         $(this).siblings('.upload-name').val(filename);
     });
+
+    $('.w-s').keyup(function(){
+        var value = (<HTMLInputElement>$(this)[0]).value.length;
+        var charLimit = $(this).attr('maxlength');
+        if (value >= Number(charLimit)) {
+            $(this).next().next('.w-s').focus();
+            return false;
+        }
+    });
 });
