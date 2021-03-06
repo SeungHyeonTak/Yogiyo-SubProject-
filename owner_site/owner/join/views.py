@@ -5,13 +5,13 @@ from django.http import HttpResponse
 from app.models import ApplicationForm
 
 
-def process(request) -> dict:
+def process(request) -> HttpResponse:
     context = {}
     return render(request, 'join/process.html', context)
 
 
 @csrf_exempt
-def online_entry(request):
+def online_entry(request) -> HttpResponse:
     context = {}
     phone_first_numbers = ['010', '011', '016', '017', '018', '019', '0130']
 
@@ -23,7 +23,7 @@ def online_entry(request):
 
 
 @csrf_exempt
-def ajax_license_validate(request):
+def ajax_license_validate(request) -> HttpResponse:
     license_number = request.POST.get('company_number')
     return_type = 'application/json'
     return_status_code = 200
