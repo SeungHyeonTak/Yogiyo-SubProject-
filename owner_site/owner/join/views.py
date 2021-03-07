@@ -58,3 +58,13 @@ def ajax_license_validate(request) -> HttpResponse:
             response.update({'success': True})
 
     return HttpResponse(json.dumps(response), return_type, return_status_code)
+
+
+@csrf_exempt
+def ajax_phone_sms_authentication(request) -> HttpResponse:
+    return_type = 'application/json'
+    return_status_code = 200
+    response = {}
+    phone_number = request.POST.get('mobile_phone_number')
+
+    return HttpResponse(json.dumps(response), return_type, return_status_code)
