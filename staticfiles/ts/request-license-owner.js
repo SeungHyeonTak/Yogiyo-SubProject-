@@ -65,4 +65,23 @@ $(document).ready(function () {
             return false;
         }
     });
+    $('button[name=send_veri_code_button]').click(function () {
+        var mobile_phone_number = $('input[name=mobile_phone_number]').toString();
+        var phone_number = $('select[name=mtel1]').val().toString() + $('input[name=mtel2]').val().toString() + $('input[name=mtel3]').val();
+        mobile_phone_number = phone_number;
+        $.ajax({
+            url: '/ajax/join/phone_number_sms/authentication/',
+            type: 'POST',
+            dataType: 'json',
+            data: { 'mobile_phone_number': mobile_phone_number },
+            success: function (json) {
+                if (json.success == false) {
+                    console.log('False');
+                }
+                else {
+                    console.log('True');
+                }
+            }
+        });
+    });
 });

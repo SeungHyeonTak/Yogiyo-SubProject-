@@ -53,7 +53,7 @@ $(document).ready(function() {
 
     var fileTarget = $('.upload-hidden');
 
-    fileTarget.on('change', function(){
+    fileTarget.on('change', function() {
         if (window.FileReader){
             // 최신 브라우저
             var filename = (<HTMLInputElement>$(this)[0]).files[0].name;
@@ -66,12 +66,32 @@ $(document).ready(function() {
         $(this).siblings('.upload-name').val(filename);
     });
 
-    $('.w-s').keyup(function(){
+    $('.w-s').keyup(function() {
         var value = (<HTMLInputElement>$(this)[0]).value.length;
         var charLimit = $(this).attr('maxlength');
         if (value >= Number(charLimit)) {
             $(this).next().next('.w-s').focus();
             return false;
         }
+    });
+
+    $('button[name=send_veri_code_button]').click(function() {
+        var mobile_phone_number = $('input[name=mobile_phone_number]').toString();
+        var phone_number = $('select[name=mtel1]').val().toString() + $('input[name=mtel2]').val().toString() + $('input[name=mtel3]').val();
+        mobile_phone_number = phone_number;
+
+        $.ajax({
+            url: '/ajax/join/phone_number_sms/authentication/',
+            type: 'POST',
+            dataType: 'json',
+            data: {'mobile_phone_number': mobile_phone_number},
+            success: function(json) {
+                if (json.success == false) {
+                    console.log('False');
+                } else {
+                    console.log('True');
+                }
+            }
+        });
     });
 });
