@@ -1,7 +1,8 @@
-import json
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from rest_framework.response import Response
+from rest_framework import status
 from app.models import ApplicationForm
 from core.sms.models import AuthSms
 from core.sms.views import *
@@ -73,13 +74,15 @@ def ajax_phone_sms_authentication(request) -> HttpResponse:
         try:
             subscriber_search: AuthSms = AuthSms.objects.get(phone_number=phone_number)
             auth_number: int = subscriber_search.auth_number
-            send_sms(phone_number, auth_number)
+            send_sms()
         except AuthSms.DoesNotExist:
             auth_sms: AuthSms = AuthSms(
                 phone_number=phone_number
             )
             auth_sms.save()
             auth_number: int = auth_sms.auth_number
-            send_sms(phone_number, auth_number)
+            send_sms()
+        except KeyError:
+            return Response({'message': 'Bad Request'}, status=status.HTTP_400_BAD_REQUEST)
 
     return HttpResponse(json.dumps(response), return_type, return_status_code)
