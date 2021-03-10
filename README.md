@@ -20,7 +20,7 @@ $ pyenv virtualenv 3.6.4 YGY
 $ pyenv local pyenv
 ```
 
-- node install
+- node module install
 
 브라우저에서 각 사양에 맞는 버전으로 install  
 
@@ -60,23 +60,8 @@ $ ./manage.py runserver 127.0.0.1:8109 --settings=config.settings.mng_local
 $ ./manage.py runserver 127.0.0.1:8109 --settings=config.settings.mng_prod
 ```
 
-### Contributing (기여 방법)
+### Open API Use (Open API 사용)
 
 -----
 
-### License (라이센스)
-
------
-
-### Known Bugs (버그)
-
------
-
-### FAQ (Frequently Asked Qustions)
-
------
-
-### ToC (Table of Contents)
-
------
-
+- ncluod sms api 사용
