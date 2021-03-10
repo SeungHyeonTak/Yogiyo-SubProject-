@@ -1,3 +1,5 @@
+import datetime
+from django.utils import timezone
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
@@ -72,17 +74,52 @@ def ajax_phone_sms_authentication(request) -> HttpResponse:
     if request.method == 'POST':
         phone_number: str = request.POST.get('mobile_phone_number')
         try:
+            # 이미 인증됨
             subscriber_search: AuthSms = AuthSms.objects.get(phone_number=phone_number)
-            auth_number: int = subscriber_search.auth_number
+            # auth_number: int = subscriber_search.auth_number
             send_sms()
+            response.update({})
         except AuthSms.DoesNotExist:
+            # 첫 인증
             auth_sms: AuthSms = AuthSms(
                 phone_number=phone_number
             )
             auth_sms.save()
             auth_number: int = auth_sms.auth_number
             send_sms()
+            response.update({'auth_number': auth_number})
         except KeyError:
             return Response({'message': 'Bad Request'}, status=status.HTTP_400_BAD_REQUEST)
+
+    return HttpResponse(json.dumps(response), return_type, return_status_code)
+
+
+@csrf_exempt
+def ajax_sms_code_validate(request) -> HttpResponse:
+    return_type: str = 'application/json'
+    return_status_code: int = 200
+    response: dict = {}
+    code: str = request.POST.get('code')
+    phone_number: str = request.POST.get('phone_number')
+
+    now = timezone.localtime(timezone.now())
+    min_3 = now + datetime.timedelta(minutes=3)
+
+    try:
+        auth_sms = AuthSms.objects.get(phone_number=phone_number, auth_number=code)
+        if auth_sms and (now > min_3):
+            response.update({
+                'success': True
+            })
+        else:
+            response.update({
+                'success': False,
+                'error_code': 1
+            })
+    except AuthSms.DoesNotExist:
+        response.update({
+            'success': False,
+            'error_code': 2
+        })
 
     return HttpResponse(json.dumps(response), return_type, return_status_code)

@@ -94,4 +94,38 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('button[name=comfirm_veri_code_button]').click(function() {
+        var confirm_button = $(this);
+        var confirm_veri_code_message = $('[name=confirm_veri_code_message]');
+        var phone_number = $('select[name=mtel1]').val().toString() + $('input[name=mtel2]').val().toString() + $('input[name=mtel3]').val();
+        var code = $('input[name=veri_code]').val();
+        var message: string = '';
+
+        $.ajax({
+            url: '/ajax/join/sms_code_validate/',
+            type: 'POST',
+            dataType: 'json',
+            data: {'code': code, 'phone_number': phone_number},
+            success: function(json) {
+                if (json.success == true) {
+                    confirm_button.attr('data-confirm', 1);
+                    confirm_veri_code_message.html('인증이 확인되었습니다.');
+                    confirm_veri_code_message.css('display', '');
+                } else {
+                    console.log(confirm_button.attr('data-confirm', 0));
+                    confirm_button.attr('data-confirm', 0);
+                    if (json.error_code == 1) {
+                        console.log('check');
+                        message = '인증번호 입력 시간이 초과되었습니다. 인증번호 받기 버튼을 눌러주세요.';
+                    } else {
+                        message = '인증번호가 일치하지 않습니다. 다시 시도해 주세요.';
+                    }
+                    confirm_veri_code_message.html(message);
+                    confirm_veri_code_message.css('display', '');
+                }
+                console.log('end');
+            }
+        });
+    });
 });
