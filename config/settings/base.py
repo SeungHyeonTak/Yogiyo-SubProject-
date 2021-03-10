@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'app',
     'account',
     'owner_site',
+    'core.sms',
 ]
 
 MIDDLEWARE = [

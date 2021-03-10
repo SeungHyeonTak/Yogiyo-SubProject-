@@ -86,19 +86,15 @@
                         <input type="hidden" name="mobile_phone_number">
                         <div class="select-style">
                             <select name="mtel1" id="w-s">
-                                <option value="010">010</option>
-                                <option value="011">011</option>
-                                <option value="016">016</option>
-                                <option value="017">017</option>
-                                <option value="018">018</option>
-                                <option value="019">019</option>
-                                <option value="0130">0130</option>
+                                {% for phone_number in phone_first_numbers %}
+                                    <option value="{{ phone_number }}">{{ phone_number }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <span class="bar">-</span>
-                        <input type="text" class="w-s" name="mtel2" numberonly="true">
+                        <input type="text" class="w-s" name="mtel2" numberOnly="true" maxlength="4">
                         <span class="bar">-</span>
-                        <input type="text" class="w-s" name="mtel3" numberonly="true">
+                        <input type="text" class="w-s" name="mtel3" numberOnly="true" maxlength="4">
                         <button type="button" class="btn-sm" name="send_veri_code_button">인증번호 전송</button>
                         <p class="info-txt">인증번호를 받지 못했다면 [인증번호 재전송] 버튼을 클릭 해주세요.</p>
                         <span class="alert" name="vericode_message"></span>
@@ -110,10 +106,10 @@
                         <em>*</em>
                     </th>
                     <td>
-                        <input type="text" class="w-l" name="veri_code" numberonly="true">
+                        <input type="text" class="w-l" name="veri_code" numberOnly="true">
                         <button type="button" class="btn-sm" name="comfirm_veri_code_button" data-confirm="0">확인
                         </button>
-                        <span class="alert" name="confirm_vericode_message"></span>
+                        <span class="alert" name="confirm_veri_code_message" style="display: none;"></span>
                     </td>
                 </tr>
                 </tbody>
@@ -176,9 +172,9 @@
                             </select>
                         </div>
                         <span class="bar">-</span>
-                        <input type="text" class="w-s" name="tel2" numberonly="true">
+                        <input type="text" class="w-s" name="tel2" numberOnly="true">
                         <span class="bar">-</span>
-                        <input type="text" class="w-s" name="tel3" numberonly="true">
+                        <input type="text" class="w-s" name="tel3" numberOnly="true">
                     </td>
                 </tr>
                 <tr>
