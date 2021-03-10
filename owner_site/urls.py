@@ -16,4 +16,6 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
     path('ajax/join/license_number/validate/', join.ajax_license_validate),
+    path('ajax/join/phone_number_sms/authentication/', join.ajax_phone_sms_authentication),
+    path('ajax/join/sms_code_validate/', join.ajax_sms_code_validate),
 ]
